@@ -5,7 +5,7 @@
 #This sucks in terms of efficiency
 
 def inefficient():
-    numbers = [x for x in range(2,int(2e6))]
+    numbers = [x for x in range(2,100)]
 
     for x in range(len(numbers)):
         for y in range(x + 1,len(numbers)):
