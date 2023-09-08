@@ -1,3 +1,5 @@
+import time
+
 '''
 This way of doing it is the same as if you were to add large numbers manually
 and then like figure out a first digit and then have a defined carry.
@@ -6,6 +8,8 @@ integer size limits (as with this example the max value that could possibly
 occur with a calculation is 999) but with most moddern lanaguages this method is
 needlessly complicated.
 '''
+
+# This shit is so much more efficient
 
 numbers = "37107287533902102798797998220837590246510135740250\
 46376937677490009712648124896970078050417018260538\
@@ -116,6 +120,8 @@ num_length = int(input("The numbers lengths: "))
 amount_num = int(input(f"How many {num_length} digit numbers are there:"))
 first_x_digits = int(input("First how many digits: "))
 
+start_time = time.time()
+
 answer = ""
 calculation = 0
 carry = 0
@@ -125,4 +131,15 @@ for x in range(num_length - 1,-1,-1):
         calculation += int(numbers[x + (y*num_length)])
     carry += (calculation // 10) * (10 ** (num_length - x))
     answer = str(calculation % 10) + answer
+    calculation = 0
 
+print(answer)
+print(carry)
+end_time = time.time()
+
+print("The time it took is {}".format(end_time - start_time))
+
+'''Just add the final calculation with the answer and the carry values to find
+the final anaswr'''
+
+#The time it took is 0.0010228157043457031
