@@ -19,11 +19,14 @@ def inefficient():
 inefficient()
 '''
 
-max_value = 10_000_000
+import time
+
+start_time = time.time()
+
+max_value = 10_00_000
 numbers = [True for x in range(max_value)]
 counter = 2
 primes = []
-
 
 for x in range(2,max_value):
     if numbers[x] == False:
@@ -41,3 +44,8 @@ for x in range(max_value):
 primes.remove(0)
 
 print(primes[10001])
+
+end_time = time.time()
+
+# For 1 x 10^7 it takes 30 seconds to compute. Only needed to go up to 200_000 
+print(f"The time it took was {end_time - start_time} seconds")
